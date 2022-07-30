@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -47,6 +45,19 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 List<Post> list = response.body();
+
+                for (Post post: list) {
+
+                    String content = "";
+
+                    content += "Id: " + post.getId() + "\n";
+                    content += "UserId: " + post.getUserId() + "\n";
+                    content += "Title: " + post.getTitle() + "\n";
+                    content += "Text: " + post.getBody() + "\n\n";
+
+                    textViewResult.append(content);
+
+                }
 
             }
 
